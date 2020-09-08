@@ -148,8 +148,14 @@ var AppComponent = /** @class */ (function () {
                 tabsContainer.animate({ scrollLeft: -offset }, 800);
             });
         }
-        $(".main-header--mobile").click(function () {
+        $(".main-header--mobile .icon-menu").click(function () {
             $('.main-header--mobile .header__menu-container .header-menu').toggleClass('active');
+        });
+        $(document).click(function (event) {
+            var click = $(event.target).attr('class');
+            if (typeof (click) === 'undefined' || (click.indexOf('icon-menu') < 0 && click.indexOf('menu-list') < 1)) {
+                $('.main-header--mobile .header__menu-container .header-menu').removeClass('active');
+            }
         });
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
